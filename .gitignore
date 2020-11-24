@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+config.py
+*.jpg
+/bin
+/lib
+/.handler-saves
+/__pycache__
