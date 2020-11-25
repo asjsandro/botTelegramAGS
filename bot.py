@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import config
 import telebot
 from telebot import types
@@ -72,10 +73,10 @@ def financeiro(message):
 #@bot.message_handler(commands=['ConsultarFinanceiro'])
 def consulta_Financeiro(message):
     msg = ""
-    print(message)
+    #print(message)
     if message.text == '/Contas Receber' :
         result = db.get_Contas_Receber()
-        print(result)
+        #print(result)
         if not result:
             msg = "Não encontrado valores na consulta!!!"
         else:
@@ -92,8 +93,8 @@ def consulta_Financeiro(message):
             usuario = message.from_user.first_name
             time = datetime.now()
             print('{} - Bot acionado pelo Usuário: {} - Função: {}  - Digitado: {}'.format(time, usuario, func, message.text))
-            print(message)
-            print(msg)
+            #print(message)
+            #print(msg)
             splitted_msg = util.split_string(msg, 3000)
             for text in splitted_msg:
 	            #tb.send_message(chat_id, text)
@@ -105,7 +106,7 @@ def consulta_Financeiro(message):
     else:
         if message.text == '/Contas Pagar' :
                 result = db.get_Contas_Pagar()
-                print(result)
+                #print(result)
                 if not result:
                     msg = "Não encontrado valores na consulta!!!"
                 else:
@@ -122,8 +123,8 @@ def consulta_Financeiro(message):
                     usuario = message.from_user.first_name
                     time = datetime.now()
                     print('{} - Bot acionado pelo Usuário: {} - Função: {}  - Digitado: {}'.format(time, usuario, func, message.text))
-                    print(message)
-                    print(msg)
+                    #print(message)
+                    #print(msg)
                     splitted_msg = util.split_string(msg, 3000)
                     for text in splitted_msg:
                         #tb.send_message(chat_id, text)
@@ -167,7 +168,7 @@ def consultar_item(message):
         
         msg = bot.reply_to(message, "Digite Novo Código para pesquisar? \n /Voltar = sair")
         if msg.text == "/Voltar":
-            print("entrei na linha 121")
+            #print("entrei na linha 121")
             bot.register_next_step_handler(message, handle_start_help)
         else:
             bot.register_next_step_handler(message, consultar_item)

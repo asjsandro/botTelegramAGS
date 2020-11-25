@@ -1,0 +1,11 @@
+[Unit]
+Description=Telegram Bot Integrado com o Protheus
+
+[Service]
+Restart=always
+User=alex
+WorkingDirectory=/opt/bot/botTelegramAGS/
+ExecStart=/usr/bin/python3 /opt/bot/botTelegramAGS/bot.py
+
+[Install]
+WantedBy=multi-user.target
